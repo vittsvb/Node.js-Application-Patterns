@@ -1,0 +1,17 @@
+{
+	"name": "membership",
+	"version": "1.0.0",
+	"author": "vvilas",
+	"description": "A Membership system patterned after Devise",
+	"dependencies": {},
+	"devDependencies": {
+		"mocha": "*",
+		"should": "*",
+		"grunt": "*",
+		"grunt-contrib-watch": "*",
+		"grunt-contrib-jshint": "*"
+	},
+	"scripts": {
+		"test": "mocha"
+	}
+}
