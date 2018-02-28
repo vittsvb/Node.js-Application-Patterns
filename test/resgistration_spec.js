@@ -15,13 +15,15 @@ describe("Registration", function () {
 	describe("a valid application", function () {
 		var regResult = {};
 		before(function (done) {
-			reg.applyForMembership({
-				email: 'test@test.com',
-				password: "password",
-				confirm: "password"
-			}, function (err, result) {
-				regResult = result;
-				done();
+			db.users.destroyAll(function (err, result) {
+				reg.applyForMembership({
+					email: 'test@test.com',
+					password: "password",
+					confirm: "password"
+				}, function (err, result) {
+					regResult = result;
+					done();
+				});
 			});
 		});
 		it("is successful", function () {
@@ -30,9 +32,18 @@ describe("Registration", function () {
 		it("creates a user", function () {
 			regResult.user.should.be.defined;
 		});
-		it("creates a log entry");
-		it("sets the users status to approved");
-		it("offers a welcome message");
+		it("creates a log entry", function(){
+			regResult.user.should.be.defined;
+		});
+		it("sets the users status to approved", function(){
+			regResult.user.status.should.equal("approved")
+		});
+		it("offers a welcome message", function(){
+			regResult.message.should.equal('Welcome')
+		});
+		it("increments the signInCount", function(){
+			regResult.user.signInCount.should.equal(1)
+		});
 	});
 
 	describe("an empty or null email", function () {

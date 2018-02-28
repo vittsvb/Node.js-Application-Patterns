@@ -4,6 +4,7 @@
   "author": "vvilas",
   "description": "A Membership system patterned after Devise",
   "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
     "secondthought": "github:robconery/second-thought"
   },
   "devDependencies": {
