@@ -58,11 +58,11 @@ describe("Registration", function () {
 				done();
 			});
 		});
-		it.skip("is not successful", function () {
+		it("is not successful", function () {
 			regResult.success.should.equal(false);
 		});
-		it.skip("tells user that email is required", function () {
-			regResult.message.should.equal("Email is required");
+		it("tells user that email is required", function () {
+			regResult.message.should.equal("Email and password are required");
 		});
 	});
 
